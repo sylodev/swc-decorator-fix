@@ -1,4 +1,11 @@
-import { hello } from "./hello";
+import { addHook } from "pirates";
 
-setInterval(() => console.log(hello()), 1000);
-console.log("Started");
+addHook(
+  (code) => {
+    return code.replace(/ +@[A-z]+\(.*\)\n +[A-z]+ ?!?: ?(?<type>.*);/g, (match, type) => {
+      const replaced = match.replace(type, `${type} = undefined`);
+      return replaced;
+    });
+  },
+  { ignoreNodeModules: false, exts: [".ts"] }
+);

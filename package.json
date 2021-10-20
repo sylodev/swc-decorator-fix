@@ -1,17 +1,16 @@
 {
-  "name": "@ryanke/template",
+  "name": "@sylo-digital/swc-decorator-fix",
   "version": "0.0.1",
-  "repository": "https://github.com/sylv/template.git",
+  "repository": "https://github.com/sylo-digital/swc-decorator-fix.git",
   "author": "Ryan <ryan@sylver.me>",
   "license": "MIT",
   "private": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "dist/index.d.ts",
-  "keywords": [
-    "template",
-    "typescript"
-  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "dist"
   ],
@@ -31,6 +30,8 @@
     "@types/jest": "^26.0.24",
     "@types/node": "14",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
@@ -39,5 +40,8 @@
     "nodemon": "^2.0.12",
     "tsup": "^4.12.5",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "pirates": "^4.0.1"
   }
 }
