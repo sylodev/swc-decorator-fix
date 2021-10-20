@@ -1,6 +1,6 @@
 {
   "name": "@sylo-digital/swc-decorator-fix",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://github.com/sylo-digital/swc-decorator-fix.git",
   "author": "Ryan <ryan@sylver.me>",
   "license": "MIT",
@@ -8,17 +8,11 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "test": "jest",
-    "start": "node ./dist/index.js",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "watch": "nodemon --exec \"node -r @swc/register\" ./src/index.ts",
+    "build": "tsup src/index.ts --format cjs,esm",
     "prepack": "pnpm run build",
     "lint": "eslint --fix ./src/**/*.{ts,tsx,js,jsx}"
   },
@@ -36,8 +30,6 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^35.0.0",
-    "jest": "^26",
-    "nodemon": "^2.0.12",
     "tsup": "^4.12.5",
     "typescript": "^4.3.5"
   },
