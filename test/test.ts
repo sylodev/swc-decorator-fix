@@ -30,3 +30,4 @@ if (error.length > 0) {
 }
 
 console.log({ success: true, post });
+console.log("yeet");

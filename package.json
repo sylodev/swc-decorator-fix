@@ -1,6 +1,6 @@
 {
   "name": "@sylo-digital/swc-decorator-fix",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": "https://github.com/sylo-digital/swc-decorator-fix.git",
   "author": "Ryan <ryan@sylver.me>",
   "license": "MIT",
@@ -30,9 +30,9 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^35.0.0",
+    "pirates": "^4.0.1",
     "reflect-metadata": "^0.1.13",
     "tsup": "^4.12.5",
-    "typescript": "^4.3.5",
-    "pirates": "^4.0.1"
+    "typescript": "^4.3.5"
   }
 }
