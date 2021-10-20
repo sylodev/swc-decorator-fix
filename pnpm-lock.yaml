@@ -15,11 +15,9 @@ specifiers:
   eslint-plugin-react-hooks: ^4.2.0
   eslint-plugin-unicorn: ^35.0.0
   pirates: ^4.0.1
+  reflect-metadata: ^0.1.13
   tsup: ^4.12.5
   typescript: ^4.3.5
-
-dependencies:
-  pirates: 4.0.1
 
 devDependencies:
   '@ryanke/eslint-config': 1.0.1_8ad29308127fedc8195f7a9fb78cb9ae
@@ -35,6 +33,8 @@ devDependencies:
   eslint-plugin-react: 7.24.0_eslint@7.32.0
   eslint-plugin-react-hooks: 4.2.0_eslint@7.32.0
   eslint-plugin-unicorn: 35.0.0_eslint@7.32.0
+  pirates: 4.0.1
+  reflect-metadata: 0.1.13
   tsup: 4.12.5_typescript@4.3.5
   typescript: 4.3.5
 
@@ -1876,6 +1876,7 @@ packages:
   /node-modules-regexp/1.0.0:
     resolution: {integrity: sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /node-releases/1.1.75:
     resolution: {integrity: sha512-Qe5OUajvqrqDSy6wrWFmMwfJ0jVgwiw4T3KqmbTcZ62qW0gQkheXYhcFM1+lOVcGUoRxcEcfyvFMAnDgaF1VWw==}
@@ -2049,6 +2050,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       node-modules-regexp: 1.0.0
+    dev: true
 
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
@@ -2138,6 +2140,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.0
+    dev: true
+
+  /reflect-metadata/0.1.13:
+    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
     dev: true
 
   /regexp-tree/0.1.23:
