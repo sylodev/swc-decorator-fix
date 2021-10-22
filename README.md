@@ -4,4 +4,9 @@ swc has some funky issues when it comes to decorators. This aims to fix them by 
 
 You can enable debug mode by setting `NODE_DEBUG` to `swc-decorator-fix`, this will log a lot of unnecessary info but will help see what it's actually doing behind the scenes and what files are cached.
 
-**This script must run before @swc/register**, for example `node -r @sylo-digital/swc-decorator-fix -r @swc/register src/index.ts`.
+## usage
+
+- `pnpm add @sylo-digital/swc-decorator-fix -D`
+- `node -r @sylo-digital/swc-decorator-fix -r @swc/register src/index.ts`
+
+_This script must be loaded before @swc/register_
