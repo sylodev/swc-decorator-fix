@@ -1,12 +1,5 @@
 import { addHook } from "pirates";
-import {
-  ParsedCommandLine,
-  findConfigFile,
-  transpileModule,
-  parseJsonConfigFileContent,
-  readConfigFile,
-  sys,
-} from "typescript";
+import typescript from "typescript";
 import { performance } from "perf_hooks";
 import crypto from "crypto";
 import { Cache } from "./cache";
@@ -19,7 +12,7 @@ const useCache = !process.argv.includes("--no-cache");
 const defaultCachePath = path.join(os.tmpdir(), ".swc-decorator-fix-cache");
 const cachePath = process.env.SWC_DECORATOR_FIX_CACHE_PATH ?? defaultCachePath;
 const cache = new Cache(cachePath);
-let cachedConfigFile: ParsedCommandLine | undefined;
+let cachedConfigFile: typescript.ParsedCommandLine | undefined;
 
 if (useCache) {
   debug("Using cache at", cachePath);
@@ -29,12 +22,12 @@ function getCodeHash(code: string): string {
   return crypto.createHash("md5").update(code).digest("hex");
 }
 
-function getConfigFile(): ParsedCommandLine {
+function getConfigFile(): typescript.ParsedCommandLine {
   if (cachedConfigFile) return cachedConfigFile;
   const start = performance.now();
   const projectIndex = process.argv.indexOf("--project");
   const project = projectIndex !== -1 ? process.argv[projectIndex + 1] : "tsconfig.json";
-  const configFilePath = findConfigFile("./", sys.fileExists, project);
+  const configFilePath = typescript.findConfigFile("./", typescript.sys.fileExists, project);
   if (!configFilePath) {
     const error = "Could not find tsconfig path.";
     const showExtra = project !== "tsconfig.json";
@@ -42,10 +35,10 @@ function getConfigFile(): ParsedCommandLine {
     throw new Error(error + extra);
   }
 
-  const configFile = readConfigFile(configFilePath, sys.readFile);
+  const configFile = typescript.readConfigFile(configFilePath, typescript.sys.readFile);
   const duration = performance.now() - start;
   debug(`Loading ${project} took ${duration}ms`);
-  cachedConfigFile = parseJsonConfigFileContent(configFile.config, sys, "./");
+  cachedConfigFile = typescript.parseJsonConfigFileContent(configFile.config, typescript.sys, "./");
   return cachedConfigFile;
 }
 
@@ -67,7 +60,7 @@ function transpile(code: string, filename: string): string {
 
     const config = getConfigFile();
     const compilerOptions = config.options;
-    const { outputText } = transpileModule(code, { compilerOptions, fileName: filename });
+    const { outputText } = typescript.transpileModule(code, { compilerOptions, fileName: filename });
     const duration = performance.now() - start;
     if (cacheKey) {
       cache.write(cacheKey, outputText);
