@@ -7,7 +7,7 @@ import path from "path";
 import { debug } from "./debug";
 import os from "os";
 
-const decoratorPattern = /\n +@[A-z]+\(/g;
+const decoratorPattern = /\n *@[A-z]+/;
 const useCache = !process.argv.includes("--no-cache");
 const defaultCachePath = path.join(os.tmpdir(), ".swc-decorator-fix-cache");
 const cachePath = process.env.SWC_DECORATOR_FIX_CACHE_PATH ?? defaultCachePath;

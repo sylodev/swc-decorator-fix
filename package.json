@@ -1,6 +1,6 @@
 {
   "name": "@sylo-digital/swc-decorator-fix",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "repository": "https://github.com/sylo-digital/swc-decorator-fix.git",
   "author": "Ryan <ryan@sylver.me>",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --sourcemap",
+    "build": "tsup src/index.ts --format cjs --sourcemap",
     "prepack": "pnpm run build",
     "lint": "eslint --fix ./src/**/*.{ts,tsx,js,jsx}"
   },
